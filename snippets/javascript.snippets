@@ -32,28 +32,25 @@ snippet igm
 		'${2}'
 	)
 	.defines(function() {
-	
 		${3}
-	
 	});
 snippet igc
 	${1} = ig.Class.extend({
-		init: function() {
-			${2}
-		}
+	init: function() {
+		${2}
+	}
 	});
 snippet ige
 	Entity${1} = ig.Entity.extend({
-		type: ig.Entity.TYPE.NONE,
-		checkAgainst: ig.Entity.TYPE.NONE,
-		collides: ig.Entity.COLLIDES.NEVER,
+	type: ig.Entity.TYPE.NONE,
+	checkAgainst: ig.Entity.TYPE.NONE,
+	collides: ig.Entity.COLLIDES.NEVER,
 	
-		size: {x: 16, y: 16},
+	size: {x: 16, y: 16},
+	animSheet: new ig.AnimationSheet( 'media/placeholder16.png', 16, 16 ),
 	
-		animSheet: new ig.AnimationSheet( 'media/dummy.png', 16, 16 ),
-	
-		init: function( x, y, settings ) {
-			this.parent( x, y, settings );
-			this.addAnim( 'idle', 1, [0] );
-		}
+	init: function( x, y, settings ) {
+		this.parent( x, y, settings );
+		this.addAnim( 'idle', 1, [0] );
+	}
 	});
