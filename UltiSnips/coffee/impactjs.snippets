@@ -7,10 +7,10 @@ ig.module(
   'game.entities.${1:`!v Filename()`}'
 )
 .requires(
-  'impact.entity'
+	'impact.entity'
 )
 .defines =>
-  ${2}
+  ${3}
 endsnippet
 
 snippet igc
@@ -27,10 +27,49 @@ snippet ige
   checkAgainst: ig.Entity.TYPE.NONE
   collides: ig.Entity.COLLIDES.NEVER
 
-  size: x: 16, y: 16
-  animSheet: new ig.AnimationSheet 'media/${2:placeholder}.png', 16, 16
+  size: x: ${3:16}, y: ${4:16}
+  animSheet: new ig.AnimationSheet 'media/${2:`!v Filename()`}.png', $3, $4
 
   init: (x, y, settings) ->
     @parent x, y, settings
     @addAnim 'idle', 1, [0]
+endsnippet
+
+snippet ppm
+ig.module(
+  'game.entities.${1:`!v Filename()`}'
+)
+.requires(
+  '${2:plusplus.core.entity}'
+	'plusplus.core.config'
+	'plusplus.helpers.utils'
+)
+.defines ->
+  ${3}
+endsnippet
+
+snippet ppc
+ig.${1:`!v substitute(Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.global.$1 = ig.Class.extend
+
+  init: ->
+    ${2}
+endsnippet
+
+snippet ppe
+_c = ig.CONFIG
+_ut = ig.utils
+
+ig.Entity${1:`!v substitute(Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.global.Entity$1 = ig.Entity.extend
+
+  size: x: ${3:16}, y: ${4:16}
+	animSheet: new ig.AnimationSheet _c.PATH_TO_MEDIA + '${2:`!v Filename()`}.png', $3, $4
+
+	animSettings:
+		idleX:
+			frameTime: 1
+			sequence: [0]
+
+	initProperties: ->
+		@parent()
+		${5}
 endsnippet
