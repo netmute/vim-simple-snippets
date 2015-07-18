@@ -4,7 +4,7 @@ endsnippet
 
 snippet igm
 ig.module(
-  'game.entities.${1:`!v Filename()`}'
+  'game.entities.${1:`!v vim_snippets#Filename()`}'
 )
 .requires(
 	'impact.entity'
@@ -14,21 +14,21 @@ ig.module(
 endsnippet
 
 snippet igc
-@${1:`!v substitute(Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.Class.extend
+@${1:`!v substitute(vim_snippets#Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.Class.extend
 
   init: ->
     ${2}
 endsnippet
 
 snippet ige
-@Entity${1:`!v substitute(Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.Entity.extend
+@Entity${1:`!v substitute(vim_snippets#Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.Entity.extend
 
   type: ig.Entity.TYPE.NONE
   checkAgainst: ig.Entity.TYPE.NONE
   collides: ig.Entity.COLLIDES.NEVER
 
   size: x: ${3:16}, y: ${4:16}
-  animSheet: new ig.AnimationSheet 'media/${2:`!v Filename()`}.png', $3, $4
+  animSheet: new ig.AnimationSheet 'media/${2:`!v vim_snippets#Filename()`}.png', $3, $4
 
   init: (x, y, settings) ->
     @parent x, y, settings
@@ -37,7 +37,7 @@ endsnippet
 
 snippet ppm
 ig.module(
-  'game.entities.${1:`!v Filename()`}'
+  'game.entities.${1:`!v vim_snippets#Filename()`}'
 )
 .requires(
   '${2:plusplus.core.entity}'
@@ -49,7 +49,7 @@ ig.module(
 endsnippet
 
 snippet ppc
-ig.${1:`!v substitute(Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.global.$1 = ig.Class.extend
+ig.${1:`!v substitute(vim_snippets#Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.global.$1 = ig.Class.extend
 
   init: ->
     ${2}
@@ -59,10 +59,10 @@ snippet ppe
 _c = ig.CONFIG
 _ut = ig.utils
 
-ig.Entity${1:`!v substitute(Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.global.Entity$1 = ig.Entity.extend
+ig.Entity${1:`!v substitute(vim_snippets#Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.global.Entity$1 = ig.Entity.extend
 
   size: x: ${3:16}, y: ${4:16}
-	animSheet: new ig.AnimationSheet _c.PATH_TO_MEDIA + '${2:`!v Filename()`}.png', $3, $4
+	animSheet: new ig.AnimationSheet _c.PATH_TO_MEDIA + '${2:`!v vim_snippets#Filename()`}.png', $3, $4
 
 	animSettings:
 		idleX:

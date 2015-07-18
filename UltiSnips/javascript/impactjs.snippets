@@ -4,7 +4,7 @@ endsnippet
 
 snippet igm
 ig.module(
-  'game.entities.${1:`!v Filename()`}'
+  'game.entities.${1:`!v vim_snippets#Filename()`}'
 )
 .requires(
   'impact.entity'
@@ -15,7 +15,7 @@ ig.module(
 endsnippet
 
 snippet igc
-${1:`!v substitute(Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.Class.extend({
+${1:`!v substitute(vim_snippets#Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.Class.extend({
 
   init: function() {
     ${2}
@@ -25,7 +25,7 @@ ${1:`!v substitute(Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.Class.extend({
 endsnippet
 
 snippet ige
-Entity${1:`!v substitute(Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.Entity.extend({
+Entity${1:`!v substitute(vim_snippets#Filename(), '\(^\)\(.\)', '\u\2', 'g')`} = ig.Entity.extend({
 
   type: ig.Entity.TYPE.NONE,
   checkAgainst: ig.Entity.TYPE.NONE,
